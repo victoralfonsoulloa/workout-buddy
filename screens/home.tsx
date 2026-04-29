@@ -244,7 +244,7 @@ export function HomeScreen({ onStart, onSelectSession, heroStyle }: HomeScreenPr
 
   return (
     <div className="wb-scroll">
-      <ScreenHeader greeting="Wednesday · Apr 29" title="Hey, Alex 👋" />
+      <ScreenHeader greeting="Wednesday · Apr 29" title="Hey, Victor 👋" />
 
       <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
         <MotivationCard phrase={motivation} />

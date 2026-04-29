@@ -101,7 +101,7 @@ interface ScreenHeaderProps {
 
 export function ScreenHeader({ greeting, title, action }: ScreenHeaderProps) {
   return (
-    <div style={{ padding: '20px 20px 12px' }}>
+    <div style={{ padding: '20px 20px 32px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
           {greeting && <div className="t-eyebrow" style={{ marginBottom: 6 }}>{greeting}</div>}
