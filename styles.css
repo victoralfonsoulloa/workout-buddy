@@ -1,0 +1,138 @@
+/* ────────────────────────────────────────────────────────────
+   Workout Buddy — design tokens
+   Light, fresh, lime-accent. Built on Geist.
+   ──────────────────────────────────────────────────────────── */
+
+@font-face { font-family: "Geist"; src: url("./fonts/Geist-Light.otf") format("opentype"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("./fonts/Geist-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("./fonts/Geist-Medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("./fonts/Geist-SemiBold.otf") format("opentype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("./fonts/Geist-Bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+
+:root {
+  /* Surface — soft, warm light */
+  --wb-page:        #EFEFEA;   /* the page wash behind the device */
+  --wb-bg:          #F4F3EE;   /* app canvas */
+  --wb-surface:     #FFFFFF;
+  --wb-surface-2:   #FAFAF7;
+  --wb-elevated:    #FFFFFF;
+
+  /* Accent — electric lime */
+  --wb-accent:        #C9FF3D;
+  --wb-accent-strong: #B8F02A;
+  --wb-accent-deep:   #84A82E;
+  --wb-accent-wash:   #ECFFC0;
+
+  /* Ink — near-black with warmth */
+  --wb-ink:          #14140F;
+  --wb-ink-2:        #2B2B25;
+  --wb-ink-muted:    #6B6B62;
+  --wb-ink-subtle:   #9A9A8E;
+  --wb-on-accent:    #14140F;
+
+  /* Borders */
+  --wb-border:       #E7E5DD;
+  --wb-border-soft:  #EFEDE5;
+  --wb-divider:      #E2E0D7;
+
+  /* Semantic — muted, harmonious with lime */
+  --wb-good:         #2E7D5B;   /* sage green */
+  --wb-good-wash:    #DDEFE3;
+  --wb-warn:         #C77A1F;
+  --wb-warn-wash:    #F8E7CC;
+  --wb-pr:           #E64A19;   /* personal record orange */
+  --wb-pr-wash:      #FCE3D7;
+
+  /* Radii */
+  --wb-r-xs: 8px;
+  --wb-r-sm: 12px;
+  --wb-r-md: 16px;
+  --wb-r-lg: 22px;
+  --wb-r-xl: 28px;
+  --wb-r-full: 9999px;
+
+  /* Shadows */
+  --wb-sh-1: 0 1px 0 rgba(20,20,15,0.04), 0 1px 2px rgba(20,20,15,0.04);
+  --wb-sh-2: 0 1px 0 rgba(20,20,15,0.04), 0 6px 16px -8px rgba(20,20,15,0.10);
+  --wb-sh-accent: 0 6px 24px -8px rgba(184, 240, 42, 0.55);
+  --wb-sh-press: inset 0 -2px 0 rgba(20,20,15,0.06);
+
+  /* Type */
+  --wb-font: "Geist", ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--wb-font);
+  background: var(--wb-page);
+  color: var(--wb-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button { font-family: inherit; }
+
+/* Utility text classes */
+.t-eyebrow {
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--wb-ink-muted);
+}
+.t-display {
+  font-size: 32px; font-weight: 700; line-height: 1.02;
+  letter-spacing: -0.022em; color: var(--wb-ink);
+}
+.t-h1 {
+  font-size: 24px; font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.018em; color: var(--wb-ink);
+}
+.t-h2 {
+  font-size: 18px; font-weight: 600; line-height: 1.2;
+  letter-spacing: -0.012em; color: var(--wb-ink);
+}
+.t-body {
+  font-size: 14px; font-weight: 400; line-height: 1.45;
+  color: var(--wb-ink-2);
+}
+.t-mono-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* App shell — fits in 430px frame */
+.wb-app {
+  width: 100%;
+  height: 100%;
+  background: var(--wb-bg);
+  color: var(--wb-ink);
+  font-family: var(--wb-font);
+  position: relative;
+  overflow: hidden;
+  padding-top: 54px; /* clear iOS status bar + Dynamic Island */
+}
+
+.wb-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  padding-bottom: 96px; /* space for bottom nav */
+}
+
+.wb-scroll::-webkit-scrollbar { width: 0; display: none; }
+
+/* Hide global scrollbars on the host page */
+body::-webkit-scrollbar { width: 0; }
+
+/* Click feedback */
+.wb-tap { -webkit-tap-highlight-color: transparent; cursor: pointer; user-select: none; }
+.wb-tap:active { transform: scale(0.985); transition: transform 80ms ease-out; }
+
+/* No-button reset */
+.wb-btn-reset {
+  border: 0; background: transparent; padding: 0; margin: 0;
+  font: inherit; color: inherit; cursor: pointer;
+}
