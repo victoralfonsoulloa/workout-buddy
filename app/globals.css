@@ -103,6 +103,16 @@ button { font-family: inherit; }
   padding-top: 54px;
 }
 
+.wb-app::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, var(--wb-bg) 40%, transparent 100%);
+  z-index: 15;
+  pointer-events: none;
+}
+
 .wb-scroll {
   overflow-y: auto;
   overflow-x: hidden;

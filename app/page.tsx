@@ -74,7 +74,7 @@ export default function App() {
     <div style={{
       height: '100dvh', background: 'var(--wb-page)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: 'max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left))',
+      padding: 'max(16px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left))',
     }}>
       <div id="stage" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {tweaks.showFrame ? (
