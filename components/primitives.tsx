@@ -15,6 +15,9 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
     { id: 'workout', label: 'Workout', icon: 'dumbbell' },
     { id: 'history', label: 'History', icon: 'history' },
   ]
+  const activeIndex = tabs.findIndex(t => t.id === active)
+  const spring = '420ms cubic-bezier(0.34, 1.56, 0.64, 1)'
+
   return (
     <div style={{
       position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -27,9 +30,22 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
         background: 'var(--wb-ink)',
         borderRadius: 'var(--wb-r-full)',
         padding: 6,
-        display: 'flex', gap: 4,
+        display: 'flex',
+        position: 'relative',
         boxShadow: '0 8px 24px -8px rgba(20,20,15,0.35)',
       }}>
+        {/* sliding pill */}
+        <div style={{
+          position: 'absolute',
+          top: 6, bottom: 6, left: 6,
+          width: 'calc((100% - 12px) / 3)',
+          borderRadius: 'var(--wb-r-full)',
+          background: 'var(--wb-accent)',
+          transform: `translateX(calc(${activeIndex} * 100%))`,
+          transition: `transform ${spring}`,
+          pointerEvents: 'none',
+        }} />
+
         {tabs.map(t => {
           const isActive = active === t.id
           return (
@@ -39,16 +55,22 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
               style={{
                 flex: 1, height: 44,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                gap: 6,
                 borderRadius: 'var(--wb-r-full)',
-                background: isActive ? 'var(--wb-accent)' : 'transparent',
-                color: isActive ? 'var(--wb-on-accent)' : 'rgba(255,255,255,0.7)',
+                color: isActive ? 'var(--wb-on-accent)' : 'rgba(255,255,255,0.55)',
                 fontSize: 13, fontWeight: 600,
                 letterSpacing: '-0.01em',
-                transition: 'background 180ms ease, color 180ms ease',
+                position: 'relative', zIndex: 1,
+                transition: `color ${spring}`,
               }}>
               <Icon name={t.icon} size={18} strokeWidth={2} />
-              {isActive && <span>{t.label}</span>}
+              <span style={{
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                maxWidth: isActive ? '72px' : '0px',
+                opacity: isActive ? 1 : 0,
+                marginLeft: isActive ? '6px' : '0px',
+                transition: `max-width ${spring}, opacity 220ms ease, margin-left ${spring}`,
+              }}>{t.label}</span>
             </button>
           )
         })}
