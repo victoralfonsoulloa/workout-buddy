@@ -100,7 +100,6 @@ button { font-family: inherit; }
   color: var(--wb-ink);
   position: relative;
   overflow: hidden;
-  padding-top: 54px;
 }
 
 .wb-app::before {
