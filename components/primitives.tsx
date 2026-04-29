@@ -18,7 +18,7 @@ export function BottomNav({ active, onChange }: BottomNavProps) {
   return (
     <div style={{
       position: 'absolute', bottom: 0, left: 0, right: 0,
-      paddingBottom: 28, paddingTop: 8,
+      paddingBottom: 'max(28px, calc(12px + env(safe-area-inset-bottom)))', paddingTop: 8,
       paddingLeft: 12, paddingRight: 12,
       background: 'linear-gradient(to top, var(--wb-bg) 60%, rgba(244,243,238,0))',
       zIndex: 30,

@@ -72,9 +72,9 @@ export default function App() {
 
   return (
     <div style={{
-      minHeight: '100vh', background: 'var(--wb-page)',
+      height: '100dvh', background: 'var(--wb-page)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: 24,
+      padding: 'max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left))',
     }}>
       <div id="stage" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {tweaks.showFrame ? (
@@ -83,7 +83,9 @@ export default function App() {
           </IOSDevice>
         ) : (
           <div style={{
-            width: 402, height: 874, borderRadius: 28, overflow: 'hidden',
+            width: 'min(402px, 100%)',
+            height: 'min(874px, 90dvh)',
+            borderRadius: 28, overflow: 'hidden',
             boxShadow: '0 40px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.10)',
           }}>{appShell}</div>
         )}
